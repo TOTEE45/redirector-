@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÌÇÑò ÅÚÇÏÉ ÇáÊæÌíå...</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; padding: 20px; }
+    </style>
+</head>
+<body>
+    <h2>?? íÊã ÇáÂä ÅÚÇÏÉ ÇáÊæÌíå...</h2>
+    <p>íÑÌì ÇáÇäÊÙÇÑ¡ ÓíÊã ÊæÌíåß Åáì ÇáãæŞÚ ÇáãÓÊåÏİ ÎáÇá áÍÙÇÊ.</p>
+
+    <script>
+        // ÇÓÊÎÑÇÌ ÇáÈíÇäÇÊ ãä ÇáÑÇÈØ
+        const params = new URLSearchParams(window.location.search);
+        const targetSite = params.get("url");
+        const referrerSite = params.get("ref");
+
+        if (targetSite && referrerSite) {
+            // İÊÍ ãÕÏÑ ÇáÒíÇÑÉ ÏÇÎá IFRAME ãÎİí áãÏÉ 5 ËæÇäò
+            document.write(`<iframe src="${referrerSite}" width="1" height="1" style="display:none;"></iframe>`);
+
+            // ÇáÇäÊÙÇÑ 5 ËæÇäò ŞÈá ÅÚÇÏÉ ÇáÊæÌíå
+            setTimeout(() => {
+                window.location.href = targetSite;
+            }, 5000); // 5000 ãááí ËÇäíÉ = 5 ËæÇäò
+        } else {
+            document.write("<p>? ÎØÃ: áã íÊã ÊæİíÑ ÑÇÈØ ÕÍíÍ.</p>");
+        }
+    </script>
+</body>
+</html>
